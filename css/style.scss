@@ -1,0 +1,102 @@
+:root {
+    // Colors
+    --white: hsl(0, 0%, 100%);
+    --light-gray: hsl(212, 45%, 89%);
+    --grayish-blue: hsl(220, 15%, 55%);
+    --dark-blue: hsl(218, 44%, 22%);
+
+    // Font family
+    --outfit: 'Outfit', sans-serif;
+
+    // Font size
+    --p-fs: 15px;
+
+    // Font weight
+    --fw-400: 400;
+    --fw-700: 700;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+    font-family: var(--outfit);
+    background-color: var(--light-gray);
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div.qr-code-component {
+        background-color: var(--white);
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        width: 350px;
+
+        @media screen and (min-width: 410px) {
+            transition: all .35s ease-in-out; // Hover animation
+
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+            }
+        }
+
+        div.qr-code-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em;
+            
+            // QR code image
+
+            img {
+                border-radius: 12px;
+                height: auto;
+                width: 100%;
+            }
+        }
+
+        div.info-container {
+            margin: 0 1.3em 2em;
+
+            h1 {
+                font-weight: var(--fw-700);
+                color: var(--dark-blue);
+                text-align: center;
+                margin-bottom: .75em;
+            }
+
+            p {
+                font-weight: var(--fw-400);
+                color: var(--grayish-blue);
+                text-align: center;
+                font-size: var(--p-fs);
+            }
+        }
+    }
+}
